@@ -22,6 +22,11 @@ body{
 .song-name{
   font-size: 1.5em;
 }
+
+.hidden{
+  display: none;
+}
+
 /*
 #bg {s
   position: fixed; 
