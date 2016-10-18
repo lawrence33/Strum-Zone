@@ -26,9 +26,11 @@ var tabData = function(query) {
         console.log(items, 'artists')
           var songPost = clonePost(items);
       $('.song-results').append(songPost);
+      $('.go-to-tabs').removeClass();
       });
       }
     });
+
 };
 
 //clone the template, post data to template & append to 'song-results'
@@ -47,10 +49,11 @@ var clonePost = function(artistsData){
   albumImg.html('<img src=' + "artistsData.album.images[].url"+ '/>');
 
   var songLink = newPost.find('.songLink');
+  var uri = artistsData.uri;
   // songLink.html("<embed src="+ 'artistsData.uri' +">''</embed>");
   songLink.html('<iframe src="https://embed.spotify.com/?uri='
-  + 'artistsData.uri"' 
-  + 'width="150" + height="180" frameborder="0"' 
+  + uri + '"' 
+  + 'width="200" + height="230" frameborder="0"' 
   + 'allowtransparency="true">' + '</iframe>');
 
   // songLink.html<'a href="' + 'https://api.spotify.com/v1/tracks/1gLOB2DBPvG1Jrupdj9PRc' + '"></a>';
@@ -67,8 +70,22 @@ var clonePost = function(artistsData){
 
         // var song = $(this).find("input[name='songTitle']").val();
         var song = $('.songTitle').val();
-
         tabData(song);
 
+        //should I clone this to a new div, OR should I clone & delete the rest
+        // $('.go-to-tabs').on('click', function(){
+        //     $('.selectArtist').clone();
+        //     var 
+        // });
+
+        $('.selectArtist').on('click', function(e){
+          e.preventDefault();
+            alert();
+            // var copyMusic = $(this).clone();
+            // console.log(copyMusic, 'copy');
+            // $('.tabs-results').appensd(copyMusic);
+            // $('.song-results').empty();
+          });
+            
       });
     });

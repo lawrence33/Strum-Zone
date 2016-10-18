@@ -1,12 +1,14 @@
-.wrap {
-	/*background-size: cover*/
-	background-image: url(../images/guitar_opacity.jpg);
-	/*color: red;*/
-  /*min-height: 100vh;*/
-  /*opacity: .65;*/
-  width: 200%; 
-  height: 200%;
+html {
+	background-size: cover;
+  background-position: center center;
+  background-image: url(../images/guitar_opacity.jpg);
+	color: red;
+  background-attachment: fixed;
   position: absolute; 
+}
+
+* {
+  box-sizing: border-box;
 }
 
 h1 {
@@ -24,25 +26,16 @@ body{
 }
 
 .hidden{
-  display: none;
+/*  display: none; */
+visibility: hidden;
 }
 
-/*
-#bg {s
-  position: fixed; 
-  top: -50%; 
-  left: -50%; 
-  
+.go-to-tabs{
+/*  display: none; */
+visibility: hidden;
 }
-#bg img {
-  
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
-  margin: auto; 
-  min-width: 50%;
-  min-height: 50%;
-  
+
+.nameArtist {
+  color: #FFFACD;
+  font-size: 1.5em;
 }
-*/

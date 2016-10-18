@@ -11,27 +11,38 @@
   <div class='song-you-want'>
     <form class='song-name'>Song title:<br>
       <input type="text" class='songTitle'/>
-      <input type="submit" />
+      <input type="submit" /><br>
+      <button class='go-to-tabs hidden'>Get guitar tabs!</button>
     </form>
   </div>
-    <div class='song-results'>
-    </div>
+  <br><br>
+    <div class='song-results'></div>
+    <div class="tabs-results"></div>
+    
 
-
-<br><br>
+<br>
 <div class='template hidden'>
+    <div class="addArtist"><input type="checkbox" name="selectArtist" id="selectArtist">
+		Artist name:
+          <div class='nameArtist'></div>
+        Play song:
+          <div class="songLink"></div>
+          <hr>
+     </div>
+</div>
+<!-- <div class='template hidden'>
       <dl class="addArtist">
-      <span><input type="checkbox" name="selectArtist" id="selectArtist">
-        <dt>Artist name:</dt></span><br>
+      <input type="checkbox" name="selectArtist" id="selectArtist">
+        <dt>Artist name:</dt>
           <dd class='nameArtist'></dd>
-        <dt>Song title:</dt><br>
+        <dt>Song title:</dt>
           <dd class="addImg"> </dd>
-        <dt>Play song:</dt><br />
+        <dt>Play song:</dt>
           <dd class="songLink"></dd>
           <hr>
       </dl>
-     <hr><hr>
-</div>
+ 	</div>-->
+
 
 </div>
 </body>
