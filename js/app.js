@@ -72,20 +72,28 @@ var clonePost = function(artistsData){
         var song = $('.songTitle').val();
         tabData(song);
 
+      });
+
         //should I clone this to a new div, OR should I clone & delete the rest
         // $('.go-to-tabs').on('click', function(){
         //     $('.selectArtist').clone();
-        //     var 
+        //     $('.tabs-results').append(copyMusic);
         // });
 
-        $('.selectArtist').on('click', function(e){
+        //why is this not working?
+        $('.selectArtist').mousedown(function(e){
           e.preventDefault();
-            alert();
+            alert('hi');
+          });
+
+        //why is this not working?
+        $('.addArtist').hover(function(){
+            alert('hi');
+          });
+                  
             // var copyMusic = $(this).clone();
             // console.log(copyMusic, 'copy');
             // $('.tabs-results').appensd(copyMusic);
             // $('.song-results').empty();
           });
-            
-      });
-    });
+        
