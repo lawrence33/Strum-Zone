@@ -1,7 +1,7 @@
 html {
 	background-size: cover;
   background-position: center center;
-  background-image: url(../images/guitar_opacity.jpg);
+  background-image: url(../images/123.jpg);
 	color: red;
   background-attachment: fixed;
   position: absolute; 
@@ -13,7 +13,7 @@ html {
 
 h1 {
 	color: white;
-  font-size: 2.5em;
+  font-size: 2.75em;
 }
 
 body{

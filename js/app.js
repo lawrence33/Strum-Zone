@@ -66,6 +66,8 @@ var urlSong = 'http://www.songsterr.com/a/ra/songs.json?pattern='
 
 var getTabs = function(songName){
   
+  var songAPI = 'http://www.songsterr.com/a/wa/song?id=';
+
   $.ajax({
     type: 'GET',
     data: songName,
@@ -73,10 +75,17 @@ var getTabs = function(songName){
     url: urlSong + songName,
     success: function(data){
       console.log(data, 'data');
-    $.each(data ,function(i, items){
-      console.log(data.id, 'id');
-    
-    });
+    songId = data[0].id;
+    // console.log(songId);
+    var songURL = songAPI + songId;
+    // console.log(songURL);
+
+    $('.tabs-results').html('<iframe src="' + songURL + '"' 
+  + 'width="850" + height="975" frameborder="0"' 
+  + 'allowtransparency="true" scrolling="no">' + '</iframe>');
+
+    return songURL;
+    // });
   }
   }); 
   
