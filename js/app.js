@@ -22,12 +22,12 @@ var tabData = function(query) {
       data: params,
       success: function(data) {
         var tracks = data.tracks.items;
-        // console.log(tracks, 'tracks')
+        // console.log(tracks, 'tracks');
         $.each(tracks, function(i, items){
-        console.log(items, 'artists')
+        // console.log(items, 'artists')
           var songPost = clonePost(items);
       $('.song-results').append(songPost);
-      $('.go-to-tabs').removeClass();
+      // $('.go-to-tabs').removeClass();
       });
       }
     });
@@ -44,16 +44,13 @@ var clonePost = function(artistsData){
   newArtist.text(artistsData.artists[0].name);
   // console.log(artistsData.artists[0].name, 'name');
 
-  var albumImg = newPost.find('.addImg');
-
-  albumImg.html('<img src=' + "artistsData.album.images[].url"+ '/>');
+  // var albumImg = newPost.find('.addImg');
+  // albumImg.html('<img src=' + "artistsData.album.images[].url"+ '/>');
 
   var songLink = newPost.find('.songLink');
   var uri = artistsData.uri;
-
   songLink.html('<iframe src="https://embed.spotify.com/?uri='
-  + uri + '"' 
-  + 'width="200" + height="230" frameborder="0"' 
+  + uri + '"' + 'width="200" + height="230" frameborder="0"' 
   + 'allowtransparency="true">' + '</iframe>');
 
 

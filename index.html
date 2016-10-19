@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Stock </title>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+  <title>Stock </title>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <div class='wrap'>
-<body>
-  <h1>The Strum zone</h1>
-  <br />
-  <div class='song-you-want'>
-    <form class='song-name'>Song title:<br>
-      <input type="text" class='songTitle'/>
-      <input type="submit" /><br>
-<!--       <button class='go-to-tabs hidden'>Get guitar tabs!</button> -->
-    </form>
-  </div>
-  <br><br>
-    <div class='song-results'></div>
-<div class="tab-wrapper"></div>
-    <div class="tabs-results"></div>
 
- <div class="get-tabs"></div>
-   <div class="addArtist">
-    <input type="checkbox" name="selectArtist" id="selectArtist">
-		Artist name:
-          <div class='nameArtist'></div>
-        Play song:
-          <div class="songLink"></div>
-     </div>
- 
- <div class="get-vids"></div>
- 
- <div class="song-tabs-video"></div>
+  <body>
+    <h1>The Strum zone</h1>
+    <br />
+    <div class='song-you-want'>
+      <form class='song-name'>Song title:<br>
+        <input type="text" class='songTitle' />
+        <input type="submit" /><br>
+        <!--       <button class='go-to-tabs hidden'>Get guitar tabs!</button> -->
+      </form>
+    </div>
+    <br>
+    <br>
     
+    <!-- append the songs from the search results to this div -->
+    <div class='song-results'></div>
+
+    <!-- using this div to move the tab window around the page -->
+    <div class="tab-wrapper">
+      <div class="tabs-results"></div>
+    </div>
+    
+    <!-- post the Youtube results in this div -->
+    <div class="get-tabs"></div>
+    
+    <div class="template hidden">
+        <div class="addArtist">
+          <input type="checkbox" name="selectArtist" id="selectArtist">
+          Artist name:
+          <div class='nameArtist'></div>
+          Play song:
+        <div class="songLink"></div>
+      </div>
+    </div>
+    <div class="get-vids"></div>
+
+    <div class="song-tabs-video"></div>
+
 
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src="js/app.js"></script>
+
 </html>
