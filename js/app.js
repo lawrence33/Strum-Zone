@@ -27,11 +27,17 @@ var tabData = function(query) {
         // console.log(items, 'artists')
           var songPost = clonePost(items);
       $('.song-results').append(songPost);
-      // $('.go-to-tabs').removeClass();
-      });
+          refineResults(songPost);
+       });
       }
     });
+};
 
+var refineResults = function(data){
+    $('.spotify').on('click','.song-results li div',function(e){
+        e.preventDefault();
+        alert('hi');
+    });
 };
 
 //clone the template, post data to template & append to 'song-results'
@@ -58,6 +64,7 @@ var clonePost = function(artistsData){
 
 };
 
+
 var getTabs = function(songName){
   
   var songAPI = 'https://www.songsterr.com/a/wa/song?id=';
@@ -65,7 +72,7 @@ var getTabs = function(songName){
   $.ajax({
     type: 'GET',
     data: songName,
-    datatype: 'jsonp',
+    datatype: 'json',
     url: urlSong + songName,
     success: function(data){
       console.log(data, 'data');

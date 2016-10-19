@@ -36,6 +36,7 @@ visibility: hidden;
 }
 
 .nameArtist {
-  color: #FFFACD;
-  font-size: 1.5em;
+  /*color: #FFFACD;*/
+  color: red;
+  font-size: 1.75em;
 }
