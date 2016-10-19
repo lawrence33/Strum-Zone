@@ -2,7 +2,7 @@
 var base = 'https://api.spotify.com';
 var songID = '/v1/tracks/{id}';
 var songSearch = '/v1/search?type=track';
-var urlSong = 'http://www.songsterr.com/a/ra/songs.json?pattern='
+var urlSong = 'https://www.songsterr.com/a/ra/songs.json?pattern='
 
 
 var tabData = function(query) {
@@ -45,20 +45,17 @@ var clonePost = function(artistsData){
   // console.log(artistsData.artists[0].name, 'name');
 
   var albumImg = newPost.find('.addImg');
-  // var albumCover = artistsData.album.images[].url;
-  // console.log(artistsData.album.images[].url, 'img');
+
   albumImg.html('<img src=' + "artistsData.album.images[].url"+ '/>');
 
   var songLink = newPost.find('.songLink');
   var uri = artistsData.uri;
-  // songLink.html("<embed src="+ 'artistsData.uri' +">''</embed>");
+
   songLink.html('<iframe src="https://embed.spotify.com/?uri='
   + uri + '"' 
   + 'width="200" + height="230" frameborder="0"' 
   + 'allowtransparency="true">' + '</iframe>');
 
-  // songLink.html<'a href="' + 'https://api.spotify.com/v1/tracks/1gLOB2DBPvG1Jrupdj9PRc' + '"></a>';
-  // console.log(artistsData.uri, 'song');
 
   return newPost;
 
@@ -66,7 +63,7 @@ var clonePost = function(artistsData){
 
 var getTabs = function(songName){
   
-  var songAPI = 'http://www.songsterr.com/a/wa/song?id=';
+  var songAPI = 'https://www.songsterr.com/a/wa/song?id=';
 
   $.ajax({
     type: 'GET',
