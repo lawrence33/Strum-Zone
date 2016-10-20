@@ -1,7 +1,10 @@
 //Globals
 var base = 'https://api.spotify.com';
+var songID = '/v1/tracks/{id}';
 var songSearch = '/v1/search?type=track';
-console.log(base + songSearch);
+var urlSong = 'https://www.songsterr.com/a/ra/songs.json?pattern='
+var theArtist;
+
 
 var tabData = function(query) {
     // console.log(query, 'que');
@@ -20,11 +23,96 @@ var tabData = function(query) {
       data: params,
       success: function(data) {
         var tracks = data.tracks.items;
-        $.each(tracks, function(i, items){
-        console.log(items.artists);
+        // console.log(tracks);
+
+       $.each(tracks, function(i, items){
+          var songPost = clonePost(items);
+          $('.song-results').append(songPost);
         });
       }
     });
+};
+
+// when 'selectThis' is clicked we want to find the nearest li of 'nameArtist'
+
+var refineResults = function(){
+      $('.spotify').on('click','.selectThis',function(e){
+        e.preventDefault();
+
+        var closestDiv = $(this).closest('div');
+
+        closestDiv.addClass('selected');
+        closestDiv.removeClass('addArtist');
+        $('.addArtist').hide();
+        theArtist = $('.selected .nameArtist').text();
+        // .appendTo('#showArtistName');
+        
+        // $('#showArtistName').val();
+        console.log(theArtist, 'the FINAL artist name');
+       });
+};
+
+
+//clone the template, post data to template & append to 'song-results'
+var clonePost = function(artistsData){
+  // console.log('start', 'artist');
+  var newPost = $('.template .addArtist').clone();
+        // console.log(newPost, 'clone')
+
+  var newArtist = newPost.find('.nameArtist');
+  newArtist.text(artistsData.artists[0].name);
+  theArtist = artistsData.artists[0].name;
+  // console.log(theArtist, 'theArtist');
+
+  var songLink = newPost.find('.songLink');
+  var uri = artistsData.uri;
+  songLink.html('<iframe src="https://embed.spotify.com/?uri='
+  + uri + '"' + 'width="200" + height="230" frameborder="0"' 
+  + 'allowtransparency="true">' + '</iframe>');
+
+
+  return newPost;
+
+};
+
+
+var getTabs = function(songName){
+  
+  var songAPI = 'https://www.songsterr.com/a/wa/song?id=';
+
+  $.ajax({
+    type: 'GET',
+    data: songName,
+    datatype: 'jsonp',
+    url: urlSong + songName,
+    success: function(data){
+      console.log(data, 'tab data');
+    songId = data[0].id;
+    // console.log(songId);
+    var songURL = songAPI + songId;
+    // console.log(songURL);
+
+    // var artistLookingFor = $('#showArtistName').val();
+
+    for (var i = 0; i <= data.length; i++) {
+      console.log(theArtist, 'artist searching for');
+      console.log(data[i].artist.name, 'artist name');
+      
+      if( theArtist == data[i].artist.name){
+        console.log(data[i].artist.name, 'artist name2');
+        return data[i].artist.name
+      };
+    }
+
+    $('.tabs-results').html('<iframe src="' + songURL + '"' 
+  + 'width="850" + height="975" frameborder="0"' 
+  + 'allowtransparency="true" scrolling="no">' + '</iframe>');
+
+    return songURL;
+    // });
+  }
+  }); 
+  
 };
 
     $(function() {
@@ -32,11 +120,12 @@ var tabData = function(query) {
       $('.song-name').on('submit', function(e) {
         e.preventDefault();
 
-        // var song = $(this).find("input[name='songTitle']").val();
         var song = $('.songTitle').val();
-        console.log(song, 'song');
-
         tabData(song);
 
+        refineResults();
+        
+        getTabs(song);
       });
     });
+
