@@ -2,7 +2,7 @@
 var base = 'https://api.spotify.com';
 var songID = '/v1/tracks/{id}';
 var songSearch = '/v1/search?type=track';
-var urlSong = 'https://www.songsterr.com/a/ra/songs.json?pattern='
+var urlSong = 'http://www.songsterr.com/a/ra/songs.json?pattern='
 var theArtist;
 
 
@@ -75,7 +75,7 @@ var clonePost = function(artistsData){
 
 var getTabs = function(songName){
   
-  var songAPI = 'https://www.songsterr.com/a/wa/song?id=';
+  var songAPI = 'http://www.songsterr.com/a/wa/song?id=';
 
   $.ajax({
     type: 'GET',
