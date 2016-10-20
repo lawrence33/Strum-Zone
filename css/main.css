@@ -21,22 +21,45 @@ body{
   font-weight: bold;
 }
 
+ul {
+  list-style: none;
+}
 .song-name{
   font-size: 1.5em;
 }
 
 .hidden{
-/*  display: none; */
-visibility: hidden;
-}
-
-.go-to-tabs{
-/*  display: none; */
-visibility: hidden;
+  display: none; 
+/*visibility: hidden;*/
 }
 
 .nameArtist {
   /*color: #FFFACD;*/
   color: red;
   font-size: 1.75em;
+}
+
+.selected{
+  color: red;
+  font-size: 1.5em;
+  /*background-color: lightgrey;*/
+  /*background-image: url(../images/123.jpg);*/
+  height: 180px;
+  width: 300px;
+  box-sizing: border-box;
+}
+
+.hideNow {
+  visibility: hidden;
+}
+
+.addArtist{
+  height: 200px;
+  width: 200px;
+}
+
+#showArtistName {
+  list-style: none;
+  font-size: 1.25em;
+  color: black;
 }

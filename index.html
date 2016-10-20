@@ -14,7 +14,7 @@
       <form class='song-name'>Song title:<br>
         <input type="text" class='songTitle' />
         <input type="submit" /><br>
-        <!--       <button class='go-to-tabs hidden'>Get guitar tabs!</button> -->
+      <div id="showArtistName" ></div>      
       </form>
     </div>
     <br>
@@ -33,14 +33,15 @@
     <!-- post the Youtube results in this div -->
     <div class="get-tabs"></div>
     
-    <li class="template hidden">
-        <div class="addArtist">
-          Artist name:
-          <div class='nameArtist'></div>
-          Play song:
-        <div class="songLink"></div>
+    <div class="template hidden">
+        <div class="addArtist" id=addArtist>
+    <button class="selectThis">Select this one</button>
+         <!--  Artist name: -->
+          <li class='nameArtist'></li>
+          <!-- Play song: -->
+          <li class="songLink"></li>
       </div>
-    </li>
+    </div>
     <div class="get-vids"></div>
 
     <div class="song-tabs-video"></div>
