@@ -80,7 +80,7 @@ var getTabs = function(songName){
   $.ajax({
     type: 'GET',
     data: songName,
-    datatype: 'json',
+    datatype: 'jsonp',
     url: urlSong + songName,
     success: function(data){
       console.log(data, 'tab data');
