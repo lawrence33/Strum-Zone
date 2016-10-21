@@ -47,9 +47,10 @@ var refineResults = function(){
         closestDiv.removeClass('addArtist');
         $('.addArtist').hide();
         theArtist = $('.selected .nameArtist').text();
-        
+      
         console.log(theArtist, 'the FINAL artist name');
-      getTabs(song, theArtist);
+        
+        getTabs(song, theArtist);
        });
 };
 
@@ -92,7 +93,7 @@ var getTabs = function(songName, artistName){
     success: function(data){
       console.log(data, 'tab data');
   
-    var useThisID = function(data){
+    var useThisID = '';
       
       for (var i = 0; i <= data.length; i++) {
       
@@ -104,7 +105,6 @@ var getTabs = function(songName, artistName){
          return useThisID;
           };
         };
-      };
 
     console.log(useThisID, 'final id2');
         
