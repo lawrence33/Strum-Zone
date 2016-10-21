@@ -123,7 +123,6 @@ var getTabs = function(songName, artistName){
     return songURL;
   }
   }); 
-  
 };
 
     $(function() {
