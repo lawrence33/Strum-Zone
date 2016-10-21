@@ -92,21 +92,24 @@ var getTabs = function(songName, artistName){
     success: function(data){
       console.log(data, 'tab data');
   
-        for (var i = 0; i <= data.length; i++) {
-
-        var useThisID = '';
-         if(artistName == data[i].artist.name){
+    var useThisID = function(data){
+      
+      for (var i = 0; i <= data.length; i++) {
+      
+        if(artistName == data[i].artist.name){
             console.log(data[i].artist.name, 'artist name2');
             var useThisID = data[i].id;
             console.log(useThisID, 'final id');
 
-          return useThisID;
+         return useThisID;
           };
-          console.log(useThisID, 'final id2');
-
         };
+      };
+
+    console.log(useThisID, 'final id2');
+        
   
-    // var songId = useThisID;
+    // var songId = useThisID;s
     // console.log(songId, 'the id to use');
 
     var songURL = songAPI + useThisID;
