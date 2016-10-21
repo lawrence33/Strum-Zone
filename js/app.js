@@ -1,4 +1,5 @@
 //Globals
+var song;
 var base = 'https://api.spotify.com';
 var songID = '/v1/tracks/{id}';
 var songSearch = '/v1/search?type=track';
@@ -31,6 +32,7 @@ var tabData = function(query) {
         });
       }
     });
+    refineResults();
 };
 
 // when 'selectThis' is clicked we want to find the nearest li of 'nameArtist'
@@ -45,10 +47,9 @@ var refineResults = function(){
         closestDiv.removeClass('addArtist');
         $('.addArtist').hide();
         theArtist = $('.selected .nameArtist').text();
-        // .appendTo('#showArtistName');
         
-        // $('#showArtistName').val();
         console.log(theArtist, 'the FINAL artist name');
+      getTabs(song, theArtist);
        });
 };
 
@@ -76,8 +77,11 @@ var clonePost = function(artistsData){
 };
 
 
-var getTabs = function(songName){
+var getTabs = function(songName, artistName){
   
+  // console.log(artistName, 'artist searching for');
+  // console.log(songName, 'song searching for');
+
   var songAPI = 'https://www.songsterr.com/a/wa/song?id=';
 
   $.ajax({
@@ -87,29 +91,33 @@ var getTabs = function(songName){
     url: urlSong + songName,
     success: function(data){
       console.log(data, 'tab data');
-    songId = data[0].id;
-    // console.log(songId);
-    var songURL = songAPI + songId;
-    // console.log(songURL);
+  
+        for (var i = 0; i <= data.length; i++) {
 
-    // var artistLookingFor = $('#showArtistName').val();
+        var useThisID = '';
+         if(artistName == data[i].artist.name){
+            console.log(data[i].artist.name, 'artist name2');
+            var useThisID = data[i].id;
+            console.log(useThisID, 'final id');
 
-    for (var i = 0; i <= data.length; i++) {
-      console.log(theArtist, 'artist searching for');
-      console.log(data[i].artist.name, 'artist name');
-      
-      if( theArtist == data[i].artist.name){
-        console.log(data[i].artist.name, 'artist name2');
-        return data[i].artist.name
-      };
-    }
+          return useThisID;
+          };
+          console.log(useThisID, 'final id2');
+
+        };
+  
+    // var songId = useThisID;
+    // console.log(songId, 'the id to use');
+
+    var songURL = songAPI + useThisID;
+    console.log(songURL);
+
 
     $('.tabs-results').html('<iframe src="' + songURL + '"' 
   + 'width="850" + height="975" frameborder="0"' 
   + 'allowtransparency="true" scrolling="no">' + '</iframe>');
 
     return songURL;
-    // });
   }
   }); 
   
@@ -120,12 +128,9 @@ var getTabs = function(songName){
       $('.song-name').on('submit', function(e) {
         e.preventDefault();
 
-        var song = $('.songTitle').val();
+        song = $('.songTitle').val();
         tabData(song);
-
-        refineResults();
         
-        getTabs(song);
       });
     });
 
