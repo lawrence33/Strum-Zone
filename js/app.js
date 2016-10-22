@@ -24,7 +24,7 @@ var tabData = function(query) {
       data: params,
       success: function(data) {
         var tracks = data.tracks.items;
-        console.log(tracks);
+        // console.log(tracks);
 
        $.each(tracks, function(i, items){
           var songPost = clonePost(items);
@@ -49,6 +49,8 @@ var refineResults = function(){
         theArtist = $('.selected .nameArtist').text();
       
         console.log(theArtist, 'the FINAL artist name');
+
+        $('.selectThis').hide();
         
         getTabs(song, theArtist);
        });
@@ -70,7 +72,7 @@ var clonePost = function(artistsData){
   var uri = artistsData.uri;
 
   songLink.html('<iframe src="https://embed.spotify.com/?uri='
-  + uri + '"' + 'width="220" + height="300" frameborder="0"' 
+  + uri + '"' + 'width="200" + height="230" frameborder="0"' 
   + 'allowtransparency="true">' + '</iframe>');
 
 
@@ -91,17 +93,6 @@ var getTabs = function(songName, artistName){
     success: function(data){
       console.log(data, 'tab data');
   
-    // var useThisID = '';
-    //   for (var i = 0; i <= data.length; i++) {
-
-    //     if(artistName == data[i].artist.name){
-    //         console.log(data[i].artist.name, 'artist name2');
-    //         var useThisID = data[i].id;
-    //         console.log(useThisID, 'final id');
-
-    //      return useThisID;
-    //       };
-    //     };
 
     var songId = data[0].id;
     console.log(songId, 'the id to use');
@@ -115,26 +106,69 @@ var getTabs = function(songName, artistName){
   + 'allowtransparency="true" scrolling="yes">' + '</iframe>');
 
 
-    $('.correctTab').on('click', function(){
+    // $('.correctTab').on('click', function(){
+    //   console.log(data[0].id, 'data string again');
+
+    //   $('.tabs-results').empty();
+      
+    //   var x=1;
+    //   while (x <= data.length) {
+    //     songId = data[x].id;
+
+    //   console.log(songId, 'new song id');
+
+    //     $('.tabs-results').html('<iframe src="' + songAPI + songId + '"' 
+    //     + 'width="850" + height="975" frameborder="0"' 
+    //     + 'allowtransparency="true" scrolling="yes">' + '</iframe>');
+
+    //     x ++;
+    //   };
+    // });
+
+     $('.correctTab').on('click', function(){
       console.log(data[0].id, 'data string again');
 
       $('.tabs-results').empty();
       
-      for (var i = 1; i <= data.length; i++) {
-        songId = data[i].id;
-      
-      console.log(songAPI, 'new song API');
-      console.log(songId, 'new song id');
+      var useThisID = '';
+      for (var i = 0; i <= data.length; i++) {
+
+        if(artistName == data[i].artist.name){
+            // console.log(data[i].artist.name, 'artist name2');
+            useThisID = data[i].id;
+            console.log(useThisID, 'final id');
+
+         // return useThisID;
+          };
+        console.log(useThisID, 'id used');
+        
+        songURL = songAPI + useThisID;
+        console.log(songURL, 'url');
 
         $('.tabs-results').html('<iframe src="' + songURL + '"' 
         + 'width="850" + height="975" frameborder="0"' 
         + 'allowtransparency="true" scrolling="yes">' + '</iframe>');
-      };
+        };
     });
-    // return songURL;
+
+     //If all else fails & Songsterr doesnt have the right tab, which is quite possible,
+    // allows Ux to click button & insert their own link which is contained in iFrame via sandbox
+        $('.stillWrong').on('click', function(){
+        $('.correctTab').hide();
+
+        var theTab = prompt('Paste your tab link here.');
+        
+        $('.tabs-results').empty();
+
+        $('.tabs-results').html('<iframe src="' + theTab + '"' 
+        + 'width="850" + height="975" frameborder="0"' 
+        + 'allowtransparency="true" scrolling="yes" sandbox="allow-forms allow-scripts">' + '</iframe>');
+        });
+
   }
   }); 
 };
+
 
     $(function() {
 

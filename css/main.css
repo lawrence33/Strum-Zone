@@ -35,17 +35,20 @@ ul {
 
 .nameArtist {
   /*color: #FFFACD;*/
-  color: red;
+  color: white;
   font-size: 1.75em;
 }
 
 .selected{
+  /*padding: 10px;*/
+  background-color: grey;
+  opacity: 20%;
   color: white;
-  font-size: 1.25em;
+  /*font-size: 1.25em;*/
   /*background-color: lightgrey;*/
   /*background-image: url(../images/123.jpg);*/
-  height: 150px;
-  width: 280px;
+  height: 160px;
+  width: 200px;
   box-sizing: border-box;
 }
 
@@ -54,12 +57,15 @@ ul {
 }
 
 .addArtist{
+  background-color: grey;
+  opacity: 20%;
   height: 200px;
   width: 200px;
+  box-sizing: border-box;
 }
-
+/*
 #showArtistName {
   list-style: none;
   font-size: 1.25em;
   color: black;
-}
+}*/
