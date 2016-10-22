@@ -142,13 +142,10 @@ var getTabs = function(songName, artistName){
       $('.song-name').on('submit', function(e) {
         e.preventDefault();
 
-<<<<<<< HEAD
         var song = $('.songTitle').val();
-=======
         song = $('.songTitle').val();
         console.log(song);
 
->>>>>>> master
         tabData(song);
 
       });
