@@ -40,12 +40,12 @@ ul {
 }
 
 .selected{
-  color: red;
-  font-size: 1.5em;
+  color: white;
+  font-size: 1.25em;
   /*background-color: lightgrey;*/
   /*background-image: url(../images/123.jpg);*/
-  height: 180px;
-  width: 300px;
+  height: 150px;
+  width: 280px;
   box-sizing: border-box;
 }
 

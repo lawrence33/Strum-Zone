@@ -24,7 +24,7 @@ var tabData = function(query) {
       data: params,
       success: function(data) {
         var tracks = data.tracks.items;
-        // console.log(tracks);
+        console.log(tracks);
 
        $.each(tracks, function(i, items){
           var songPost = clonePost(items);
@@ -68,8 +68,9 @@ var clonePost = function(artistsData){
 
   var songLink = newPost.find('.songLink');
   var uri = artistsData.uri;
+
   songLink.html('<iframe src="https://embed.spotify.com/?uri='
-  + uri + '"' + 'width="200" + height="230" frameborder="0"' 
+  + uri + '"' + 'width="220" + height="300" frameborder="0"' 
   + 'allowtransparency="true">' + '</iframe>');
 
 
@@ -80,9 +81,6 @@ var clonePost = function(artistsData){
 
 var getTabs = function(songName, artistName){
   
-  // console.log(artistName, 'artist searching for');
-  // console.log(songName, 'song searching for');
-
   var songAPI = 'https://www.songsterr.com/a/wa/song?id=';
 
   $.ajax({
@@ -93,37 +91,49 @@ var getTabs = function(songName, artistName){
     success: function(data){
       console.log(data, 'tab data');
   
-    var useThisID = '';
-      
-      for (var i = 0; i <= data.length; i++) {
-      
-        if(artistName == data[i].artist.name){
-            console.log(data[i].artist.name, 'artist name2');
-            var useThisID = data[i].id;
-            console.log(useThisID, 'final id');
+    // var useThisID = '';
+    //   for (var i = 0; i <= data.length; i++) {
 
-         return useThisID;
-          };
-        };
+    //     if(artistName == data[i].artist.name){
+    //         console.log(data[i].artist.name, 'artist name2');
+    //         var useThisID = data[i].id;
+    //         console.log(useThisID, 'final id');
 
-    console.log(useThisID, 'final id2');
-        
-  
-    // var songId = useThisID;s
-    // console.log(songId, 'the id to use');
+    //      return useThisID;
+    //       };
+    //     };
 
-    var songURL = songAPI + useThisID;
+    var songId = data[0].id;
+    console.log(songId, 'the id to use');
+
+    var songURL = songAPI + songId;
     console.log(songURL);
 
 
     $('.tabs-results').html('<iframe src="' + songURL + '"' 
   + 'width="850" + height="975" frameborder="0"' 
-  + 'allowtransparency="true" scrolling="no">' + '</iframe>');
+  + 'allowtransparency="true" scrolling="yes">' + '</iframe>');
 
-    return songURL;
+
+    $('.correctTab').on('click', function(){
+      console.log(data[0].id, 'data string again');
+
+      $('.tabs-results').empty();
+      
+      for (var i = 1; i <= data.length; i++) {
+        songId = data[i].id;
+      
+      console.log(songAPI, 'new song API');
+      console.log(songId, 'new song id');
+
+        $('.tabs-results').html('<iframe src="' + songURL + '"' 
+        + 'width="850" + height="975" frameborder="0"' 
+        + 'allowtransparency="true" scrolling="yes">' + '</iframe>');
+      };
+    });
+    // return songURL;
   }
   }); 
-  
 };
 
 
@@ -132,7 +142,13 @@ var getTabs = function(songName, artistName){
       $('.song-name').on('submit', function(e) {
         e.preventDefault();
 
+<<<<<<< HEAD
         var song = $('.songTitle').val();
+=======
+        song = $('.songTitle').val();
+        console.log(song);
+
+>>>>>>> master
         tabData(song);
 
       });
