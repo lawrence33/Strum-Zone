@@ -152,26 +152,17 @@ var clearForm = function(){
   });
 };
 
-
     $(function() {
 
       $('.song-name').on('submit', function(e) {
         e.preventDefault();
 
-<<<<<<< HEAD
         var song = $('.songTitle').val();
-=======
-
->>>>>>> master
         song = $('.songTitle').val();
         console.log(song);
 
         tabData(song);
-<<<<<<< HEAD
-
-=======
         clearForm();        
->>>>>>> master
       });
     });
 
