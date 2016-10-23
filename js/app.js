@@ -152,12 +152,13 @@ var clearForm = function(){
   });
 };
 
+
     $(function() {
 
       $('.song-name').on('submit', function(e) {
         e.preventDefault();
 
-        var song = $('.songTitle').val();
+
         song = $('.songTitle').val();
         console.log(song);
 
