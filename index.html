@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <base href="myIframe">
   <title>Stock </title>
   <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
@@ -19,7 +20,7 @@
     </div>
     <br>
     <br>
-    
+
     <!-- append the songs from the search results to this div -->
     <div class="spotify">
     <ul class='song-results'></ul>
@@ -31,9 +32,8 @@
     <!-- using this div to move the tab window around the page -->
     <div class="tab-wrapper">
     <button class="correctTab">Not the right tab? Click here.</button>
-    <button class="stillWrong">STILL not the right tab?</button>
-  <div class="tabs-results">
-</div>
+    <ul class="list-tabs"></ul>
+    <div class="tabs-results"></div>
     </div>
     
     <!-- post the Youtube results in this div -->

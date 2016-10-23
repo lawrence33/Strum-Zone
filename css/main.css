@@ -1,7 +1,7 @@
 html {
 	background-size: cover;
   background-position: center center;
-  background-image: url(../images/123.jpg);
+  background-image: url(../images/guitar_background2.jpg);
 	color: red;
   background-attachment: fixed;
   position: absolute; 
@@ -41,14 +41,14 @@ ul {
 
 .selected{
   /*padding: 10px;*/
-  background-color: grey;
+  /*background-color: grey;*/
   opacity: 20%;
   color: white;
   /*font-size: 1.25em;*/
   /*background-color: lightgrey;*/
   /*background-image: url(../images/123.jpg);*/
-  height: 160px;
-  width: 200px;
+  height: 200px;
+  width: 300px;
   box-sizing: border-box;
 }
 
@@ -57,15 +57,22 @@ ul {
 }
 
 .addArtist{
-  background-color: grey;
+  /*background-color: grey;*/
   opacity: 20%;
   height: 200px;
-  width: 200px;
+  width: 300px;
   box-sizing: border-box;
 }
-/*
-#showArtistName {
-  list-style: none;
-  font-size: 1.25em;
-  color: black;
-}*/
+
+.list-tabs {
+  color: white;
+}
+
+a {
+  color: beige;
+}
+a:hover {
+  color: beige;
+  font-weight: bold;
+  font-size: 1.5em; 
+}
