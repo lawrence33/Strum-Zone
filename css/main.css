@@ -46,14 +46,21 @@ ul {
   /*position: relative;*/
   float: left;
   width: 35%;
-  background-color: pink;
+  /*background-color: pink;*/
+}
+.song-results{
+/*  margin-top: 40%;
+  margin: auto;*/
+  height: 300px;
 }
 
 .get-tabs{
+  /*margin: auto;*/
+  padding: 0px;
   float: left;
   width: 55%;
   height: 300px;
-  outline: 1px solid white;
+  /*outline: 1px solid white;*/
   /*background-color: yellow;*/
 }
 
@@ -66,6 +73,18 @@ ul {
 
 .song-name{
   font-size: 1.5em;
+  color: white;
+}
+
+.guitar-tutorial{
+  /*padding: 10px;*/
+  /*margin: 0 auto;*/
+  float: right;
+  height: 350px;
+  color: white;
+  font-size: 1.25em;
+  overflow: auto;
+  /*overflow-x: hidden;*/
 }
 
 .hidden{

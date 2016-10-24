@@ -122,23 +122,45 @@ var getTabs = function(songName, artistName){
 };
 
 //Youtube API
-// var getYoutubeVids = function(songNm, artistNm){
+var getYoutubeVids = function(songNm, artistNm){
 
-//   var searchString = songNm + ' ' + artistNm + ' guitar tutorial';
-//   console.log(searchString, 'search');
+  var searchString = songNm + ' ' + artistNm + ' guitar lesson tutorial';
+  console.log(searchString, 'search');
 
-//   var params = {
-//     q: searchString,
-//     key: 'AIzaSyA1uLdof4nnB3Ef3japYsj8p6eNcYB6LIc',
-//     part: 'snippet',
-//     maxResults: 10
-//   };
+  var params = {
+    q: searchString,
+    key: 'AIzaSyA1uLdof4nnB3Ef3japYsj8p6eNcYB6LIc',
+    part: 'snippet',
+    maxResults: 5
+  };
 
-//   $.getJSON(youtubeURL,params,function(data){
-//       console.log(data.items,'yt vids');
-//   });
+  $.getJSON(youtubeURL,params,function(data){
+      var ytData = data.items; 
+      console.log(data.items,'yt vids');
 
-// };
+      postVids(ytData);
+
+  });
+
+var postVids = function(dataSet){
+    var snipBase = "https://www.youtube.com/embed/";
+    var vidList = '';
+
+    $.each(dataSet,function(i,index){
+      var snipTitle = index.snippet.title;
+      var vidThumb = snipBase + index.id.videoId;
+      vidList += '<p>' +snipTitle+ '</p>' 
+      + '<iframe width="400" height="275" src=' 
+      + vidThumb + '>' + '</iframe>' + '<br>';
+
+      console.log(vidList,'vids');
+
+      $('.guitar-tutorial').html(vidList);
+    });
+
+};
+
+};
 
 var clearForm = function(){
         song = $('.songTitle').val();
@@ -148,7 +170,6 @@ var clearForm = function(){
     $('.tabs-results').empty();
     $('.list-tabs').empty();
     
-    // tabData(song);
 };
 
 
