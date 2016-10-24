@@ -1,5 +1,6 @@
 //Globals
 var song;
+var youtubeURL = 'https://www.googleapis.com/youtube/v3/search?';
 var base = 'https://api.spotify.com';
 var songID = '/v1/tracks/{id}';
 var songSearch = '/v1/search?type=track';
@@ -7,6 +8,7 @@ var urlSong = 'http://www.songsterr.com/a/ra/songs.json?pattern='
 var theArtist;
 
 
+//Spotify API call
 var tabData = function(query) {
     console.log(query, 'que');
 
@@ -27,28 +29,11 @@ var tabData = function(query) {
 
        $.each(tracks, function(i, items){
           var songPost = clonePost(items);
-          $('.song-results').append(songPost);
+          $('.song-results').append(songPost).addClass('overflow-sm');
+
         });
       }
     });
-    refineResults();
-};
-
-// when 'selectThis' is clicked we want to find the nearest li of 'nameArtist'
-var refineResults = function(){
-      $('.spotify').on('click','.selectThis',function(e){
-        e.preventDefault();
-
-        var closestDiv = $(this).closest('div');
-
-        closestDiv.addClass('selected');
-        closestDiv.removeClass('addArtist');
-        $('.addArtist').hide();
-        theArtist = $('.selected .nameArtist').text();
-        $('.selectThis').hide();
-        
-        getTabs(song, theArtist);
-       });
 };
 
 
@@ -70,6 +55,7 @@ var clonePost = function(artistsData){
   return newPost;
 };
 
+//Songsterr API
 var getTabs = function(songName, artistName){
   var songAPI = 'http://www.songsterr.com/a/wa/song?id=';
 
@@ -83,9 +69,9 @@ var getTabs = function(songName, artistName){
     
       var useThisID = '';
       for (var i = 0; i <= data.length; i++) {
-
-        if(artistName == data[i].artist.name){
-            // console.log(data[i].artist.name, 'artist name2');
+        
+        if(artistName == data[i].artist.name && data[i].artist.name != ''){
+            console.log(data[i].artist.name, 'console log data i');
             useThisID = data[i].id;
             // console.log(useThisID, 'final id');
           };
@@ -103,6 +89,8 @@ var getTabs = function(songName, artistName){
       var restOfTabs = '';
       var baseSite = 'http://www.songsterr.com/';
 
+      $('.stillWrong').show();
+
       $('.tabs-results').html('<iframe name="myIframe" src="' + baseSite + '"' 
         + 'width="850" + height="975" frameborder="0"' 
         + 'allowtransparency="true" scrolling="yes" sandbox="allow-forms allow-scripts">' + '</iframe>');
@@ -115,54 +103,89 @@ var getTabs = function(songName, artistName){
       
       });
     };
-    }
-
+    
      //If all else fails & Songsterr doesnt have the right tab, which is quite possible,
     // allows Ux to click button & insert their own link which is contained in iFrame via sandbox
-        
-        // $('.stillWrong').on('click', function(){
+    $('.stillWrong').on('click', function(){
   
-        // $('.correctTab').hide();
-
-        // var theTab = prompt('Paste your tab link here.');
+        $('.correctTab').hide();
+        var theTab = prompt('Paste your tab link here.');
         
-        // $('.tabs-results').empty();
+        $('.tabs-results').empty();
 
-        // $('.tabs-results').html('<iframe src="' + theTab + '"' 
-        // + 'width="850" + height="975" frameborder="0"' 
-        // + 'allowtransparency="true" scrolling="yes" sandbox="allow-forms allow-scripts">' + '</iframe>');
-        // });
-  // }
-  }); 
+        $('.tabs-results').html('<iframe src="' + theTab + '"' 
+        + 'width="850" + height="975" frameborder="0"' 
+        + 'allowtransparency="true" scrolling="yes" sandbox="allow-forms allow-scripts">' + '</iframe>');
+        });
+  }
+  });
 };
 
-var clearForm = function(){
-  $('.song-name').on('submit', function(e) {
-        e.preventDefault();
+//Youtube API
+// var getYoutubeVids = function(songNm, artistNm){
 
+//   var searchString = songNm + ' ' + artistNm + ' guitar tutorial';
+//   console.log(searchString, 'search');
+
+//   var params = {
+//     q: searchString,
+//     key: 'AIzaSyA1uLdof4nnB3Ef3japYsj8p6eNcYB6LIc',
+//     part: 'snippet',
+//     maxResults: 10
+//   };
+
+//   $.getJSON(youtubeURL,params,function(data){
+//       console.log(data.items,'yt vids');
+//   });
+
+// };
+
+var clearForm = function(){
         song = $('.songTitle').val();
         console.log(song, 'new song');
 
-    $('.addArtist').empty();
     $('.song-results').empty();
     $('.tabs-results').empty();
     $('.list-tabs').empty();
     
-    tabData(song);
-  });
+    // tabData(song);
 };
 
 
     $(function() {
 
+    // when 'selectThis' is clicked we want to find the nearest li of 'nameArtist'
+      $('.spotify').on('click','.selectThis',function(e){
+        e.preventDefault();
+
+        var closestDiv = $(this).closest('div');
+
+        closestDiv.addClass('selected');
+        closestDiv.removeClass('addArtist');
+        $('.song-results').removeClass('overflow-sm');
+        $('.addArtist').hide();
+        theArtist = $('.selected .nameArtist').text();
+        $('.selectThis').hide();
+        
+        getTabs(song, theArtist);
+
+    //call Youtube API
+        getYoutubeVids(song,theArtist); 
+        console.log(song,'YT song');
+        console.log(theArtist,'YT artist');
+       });
+
+
       $('.song-name').on('submit', function(e) {
         e.preventDefault();
 
+        clearForm();
 
+ 
         song = $('.songTitle').val();
         console.log(song);
 
         tabData(song);
-        clearForm();        
+               
       });
     });
