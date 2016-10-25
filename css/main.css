@@ -114,7 +114,15 @@ ul {
   margin: 45%;
   margin-top: 5%;
   width: 400px;
-  /*margin-left: 500px;*/
+  background-color: black;
+  opacity: .8;
+  border-radius: 5px;
+}
+
+.spotifynext{
+  display: inline-block;
+  /*margin-top: 5%;*/
+  width: 400px;
   background-color: black;
   opacity: .8;
   border-radius: 5px;

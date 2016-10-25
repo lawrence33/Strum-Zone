@@ -179,6 +179,8 @@ var clearForm = function(){
     $('.guitar-tutorial').empty();
     $('.addArtist').show();
     $('.selectThis').show();
+    $('.spotify').removeClass('spotifynext').addClass('spotify');
+
 };
 
     $(function() {
@@ -205,9 +207,10 @@ var clearForm = function(){
 
         var closestDiv = $(this).closest('div');
 
-        closestDiv.addClass('selected');
-        closestDiv.removeClass('addArtist');
+        closestDiv.addClass('selected').removeClass('addArtist');
         $('.song-results').removeClass('overflow-sm');
+        $('.spotify').addClass('spotifynext').removeClass('spotify');
+
         $('.addArtist').hide();
         theArtist = $('.selected .nameArtist').text();
         $('.selectThis').hide();
