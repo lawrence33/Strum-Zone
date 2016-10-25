@@ -124,10 +124,10 @@ var getTabs = function(songName, artistName){
         + 'width="850" + height="975" frameborder="0"' 
         + 'allowtransparency="true" scrolling="yes" sandbox="allow-forms allow-scripts">' + '</iframe>');
         });
-  },
-      error: function(err){
-        alert('Error!');
-      }
+    }
+      // error: function(err){
+      //   alert('Error!');
+      // }
 
   });
 };
