@@ -33,10 +33,10 @@ var tabData = function(query) {
           var songPost = clonePost(items);
           $('.song-results').append(songPost).addClass('overflow-sm');
         });
-      },
-      error: function(err){
-        console.log(err);
       }
+      // error: function(err){
+      //   console.log(err);
+      // }
     });
 };
 
