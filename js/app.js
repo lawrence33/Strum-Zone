@@ -10,7 +10,9 @@ var theArtist;
 
 //Spotify API call
 var tabData = function(query) {
-    console.log(query, 'que');
+    // console.log(query, 'que');
+    $('.spotify').removeClass('hidden');
+
 
     var params = {
        q: query,
@@ -26,12 +28,14 @@ var tabData = function(query) {
       data: params,
       success: function(data) {
         var tracks = data.tracks.items;
-
+          console.log('hello');
        $.each(tracks, function(i, items){
           var songPost = clonePost(items);
           $('.song-results').append(songPost).addClass('overflow-sm');
-
         });
+      },
+      error: function(err){
+        console.log(err);
       }
     });
 };
@@ -49,7 +53,7 @@ var clonePost = function(artistsData){
   var uri = artistsData.uri;
 
   songLink.html('<iframe src="https://embed.spotify.com/?uri='
-  + uri + '"' + 'width="200" + height="230" frameborder="0"' 
+  + uri + '"' + 'width="300" + height="200" frameborder="0"' 
   + 'allowtransparency="true">' + '</iframe>');
 
   return newPost;
@@ -62,7 +66,7 @@ var getTabs = function(songName, artistName){
   $.ajax({
     type: 'GET',
     data: songName,
-    datatype: 'jsonp',
+    datatype: 'json',
     url: urlSong + songName,
     success: function(data){
       console.log(data, 'tab data');
@@ -73,7 +77,7 @@ var getTabs = function(songName, artistName){
         if(artistName == data[i].artist.name && data[i].artist.name != ''){
             console.log(data[i].artist.name, 'console log data i');
             useThisID = data[i].id;
-            // console.log(useThisID, 'final id');
+            console.log(useThisID, 'final id');
           };
         
         songURL = songAPI + useThisID;
@@ -89,7 +93,7 @@ var getTabs = function(songName, artistName){
       var restOfTabs = '';
       var baseSite = 'http://www.songsterr.com/';
 
-      $('.stillWrong').show();
+      // $('.stillWrong').show();
 
       $('.tabs-results').html('<iframe name="myIframe" src="' + baseSite + '"' 
         + 'width="850" + height="975" frameborder="0"' 
@@ -100,6 +104,9 @@ var getTabs = function(songName, artistName){
       });
 
       $('.list-tabs').html(restOfTabs);
+      $('.list-tabs').on('click',function(){
+        $('.list-tabs').hide();
+      })
       
       });
     };
@@ -117,7 +124,11 @@ var getTabs = function(songName, artistName){
         + 'width="850" + height="975" frameborder="0"' 
         + 'allowtransparency="true" scrolling="yes" sandbox="allow-forms allow-scripts">' + '</iframe>');
         });
-  }
+  },
+      error: function(err){
+        alert('Error!');
+      }
+
   });
 };
 
@@ -157,27 +168,40 @@ var postVids = function(dataSet){
 
       $('.guitar-tutorial').html(vidList);
     });
-
 };
-
 };
 
 var clearForm = function(){
-        song = $('.songTitle').val();
-        console.log(song, 'new song');
 
     $('.song-results').empty();
     $('.tabs-results').empty();
     $('.list-tabs').empty();
-    
+    $('.guitar-tutorial').empty();
+    $('.addArtist').show();
+    $('.selectThis').show();
 };
 
-
     $(function() {
+
+    //Ux types in the new input form for the NEXT song they want
+     $('.new-query').on('click', function(e){
+        e.preventDefault();
+
+        clearForm();
+
+        $('.songTitle').val("");
+        $('.song-you-want').slideDown('slow');
+        $('.next-song-query').slideUp('slow');
+       
+    });
+
+
 
     // when 'selectThis' is clicked we want to find the nearest li of 'nameArtist'
       $('.spotify').on('click','.selectThis',function(e){
         e.preventDefault();
+
+        $('.correctTab').show();
 
         var closestDiv = $(this).closest('div');
 
@@ -192,21 +216,19 @@ var clearForm = function(){
 
     //call Youtube API
         getYoutubeVids(song,theArtist); 
-        console.log(song,'YT song');
-        console.log(theArtist,'YT artist');
        });
 
 
       $('.song-name').on('submit', function(e) {
         e.preventDefault();
-
+      
         clearForm();
 
- 
+        $('.song-you-want').slideUp('slow');
+        $('.next-song-query').slideDown('slow');
+       
         song = $('.songTitle').val();
-        console.log(song);
-
-        tabData(song);
-               
+        
+        tabData(song);               
       });
     });
