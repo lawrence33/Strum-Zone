@@ -28,20 +28,6 @@ ul {
   list-style: none;
 }
 
-/*.left{
-  margin: 0;
-  padding: 0;
-  width: 50%;
-  background-color: pink;
-  float: left;
-}
-.right{
-  width: 50%;
-  float: right;
-  background-color: tan;
-}
-*/
-
 .section{
   /*width: 1100px;*/
   display: inline-block;
