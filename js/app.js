@@ -10,7 +10,6 @@ var theArtist;
 
 //Spotify API call
 var tabData = function(query) {
-    // console.log(query, 'que');
     $('.spotify').removeClass('hidden');
 
 
@@ -93,7 +92,7 @@ var getTabs = function(songName, artistName){
       var restOfTabs = '';
       var baseSite = 'http://www.songsterr.com/';
 
-      // $('.stillWrong').show();
+      $('.stillWrong').show();
 
       $('.tabs-results').html('<iframe name="myIframe" src="' + baseSite + '"' 
         + 'width="850" + height="975" frameborder="0"' 
