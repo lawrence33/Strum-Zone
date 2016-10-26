@@ -11,47 +11,54 @@
   <body>
     <h1>The Strum zone</h1>
     <br />
+    <div class="next-song-query hidden" >
+        <input type="submit" class='new-query' value="New Song">
+    </div>      
+    
     <div class='song-you-want'>
-      <form class='song-name'>Song title:<br>
+      <form class='song-name'>Type in your song name:<br>
         <input type="text" class='songTitle' />
-        <input type="submit" /><br>
-      <div id="showArtistName" ></div>      
+        <br>
+        <input type="submit" class="songSubmit" /><br>
       </form>
     </div>
-    <br>
-    <br>
 
-    <!-- append the songs from the search results to this div -->
-    <div class="spotify">
-    <ul class='song-results'></ul>
-    <hr>
-    <br>
-    </div>
-    <br>
 
+        <div class="spotify row hidden">
+        <ul class='song-results'></ul>
+        <br>
+        </div>
+        <br>
+        <hr>
+
+  <div class="section">
     <!-- using this div to move the tab window around the page -->
+    <br>
     <div class="tab-wrapper">
-    <button class="correctTab">Not the right tab? Click here.</button>
+      <button class="correctTab hidden">Not the right tab? Click here.</button>
+      <br>
+      <button class="stillWrong hidden">Paste a tab link here.</button>
     <ul class="list-tabs"></ul>
-    <div class="tabs-results"></div>
+      <div class="tabs-results"></div>
     </div>
-    
-    <!-- post the Youtube results in this div -->
-    <div class="get-tabs"></div>
-    
+
+
+        <!-- post the Youtube results in this div -->
+    <br>
+        <div class="get-vids row">
+          <div class="guitar-tutorial"></div>
+        </div>
+    <br>
+
+  </div>
+
     <div class="template hidden">
         <div class="addArtist" id=addArtist>
-        <button class="selectThis">Select this one</button>
-         <!--  Artist name: -->
+           <button class="selectThis">Select this one</button>
           <li class='nameArtist'></li>
-          <!-- Play song: -->
           <li class="songLink"></li>
-      </div>
+        </div>
     </div>
-    <div class="get-vids"></div>
-
-    <div class="song-tabs-video"></div>
-
 
 </div>
 </body>
