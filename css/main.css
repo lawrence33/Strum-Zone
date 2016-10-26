@@ -91,7 +91,6 @@ ul {
   height: 40px;
   background-color: lightblue;
   border-radius: 3px;
-<<<<<<< HEAD
 }
 
 /*The SPOTIFY link section*/
@@ -164,80 +163,6 @@ ul {
   overflow: auto;
 }
 
-=======
-}
-
-/*The SPOTIFY link section*/
-.spotify{
-  display: inline-block;
-  /*position: relative;*/
-  margin: 45%;
-  margin-top: 5%;
-  width: 400px;
-  background-color: black;
-  opacity: .8;
-  border-radius: 5px;
-}
-
-.spotifynext{
-  display: inline-block;
-  /*margin-top: 5%;*/
-  width: 400px;
-  background-color: black;
-  opacity: .8;
-  border-radius: 5px;
-}
-
-/*.spotify-row{
-  height: 300px;
-  display: inline-block;
-  margin-top: 0px;
-}*/
-
-.song-results{
-/*overflow: auto;*/
-/*height: 300px;*/
-/*font-size: 1.25em;
-  margin: 550px;
-  margin-top: 10%;
-  width: 400px;
-  height: 250px;
-  opacity: .6;
-  color: lightgrey;
-  background-color: black;*/
-  /*text-align: center;*/
-  /*line-height: 65px;*/
-  /*padding: 15px;*/
-  /*text-align: center; */
-}
-
-.row::before,
-.row::after {
-  display: table;
-  content: " "
-}
-
-.row::after {
-  clear: both;
-}
-
-.get-vids{
-  /*margin: auto;*/
-  padding: 5px;
-  float: right;
-  width: 35%;
-  height: 330px;
-  /*outline: 1px solid white;*/
-  /*background-color: yellow;*/
-}
-
-.overflow-sm {
-  width: 400px;
-  height: 500px;
-  overflow: auto;
-}
-
->>>>>>> master
 .guitar-tutorial{
   /*float: right;*/
   height: 350px;
@@ -265,7 +190,7 @@ ul {
 
 .tab-wrapper{
   width: 40%;
-    display: inline-block;
+  display: inline-block;
 }
 
 .selected{
