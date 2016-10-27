@@ -52,7 +52,7 @@ var clonePost = function(artistsData){
   var uri = artistsData.uri;
 
   songLink.html('<iframe src="https://embed.spotify.com/?uri='
-  + uri + '"' + 'width="300" + height="200" frameborder="0"' 
+  + uri + '"' + 'width="400" + height="220" frameborder="0"' 
   + 'allowtransparency="true">' + '</iframe>');
 
   return newPost;
@@ -178,8 +178,6 @@ var clearForm = function(){
     $('.guitar-tutorial').empty();
     $('.addArtist').show();
     $('.selectThis').show();
-    $('.spotify').removeClass('spotifynext').addClass('spotify');
-
 };
 
     $(function() {
@@ -193,7 +191,8 @@ var clearForm = function(){
         $('.songTitle').val("");
         $('.song-you-want').slideDown('slow');
         $('.next-song-query').slideUp('slow');
-       
+        $('.spotifynext').removeClass('spotifynext').addClass('spotify');
+        $('.correctTab').hide();
     });
 
 
@@ -207,7 +206,7 @@ var clearForm = function(){
         var closestDiv = $(this).closest('div');
 
         closestDiv.addClass('selected').removeClass('addArtist');
-        $('.song-results').removeClass('overflow-sm');
+        $('.song-results').addClass('song-results2').removeClass('overflow-sm', '.song-results');
         $('.spotify').addClass('spotifynext').removeClass('spotify');
 
         $('.addArtist').hide();
@@ -225,7 +224,6 @@ var clearForm = function(){
         e.preventDefault();
       
         clearForm();
-
         $('.song-you-want').slideUp('slow');
         $('.next-song-query').slideDown('slow');
        
