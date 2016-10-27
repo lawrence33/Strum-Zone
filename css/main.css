@@ -15,15 +15,19 @@ html {
 h1 {
   color: white;
   font-size: 2.75em;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 body{
+  font-family: 'Open Sans Condensed', sans-serif;
   margin: 50px;
   color: black;
+  font-size: 1.5em;
   font-weight: bold;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  position: fixed;
+  height: 100%;
+  /*overflow-x: hidden;*/
+  /*overflow-y: scroll;*/
+  /*position: fixed;*/
 
 }
 
@@ -53,6 +57,9 @@ ul {
 
 /*This is for the intro section*/
 .song-you-want {
+  position: absolute;
+  left: 50%;
+  top: 50%;
   font-size: 1.9em;
   margin: 630px;
   margin-top: 10%;
@@ -60,7 +67,7 @@ ul {
   height: 300px;
   opacity: .6;
   color: lightgrey;
-  background-color: black;
+  background-color: #333333;
   border-radius: 5px;
   text-align: center;
   line-height: 65px;
@@ -70,17 +77,32 @@ ul {
 
 .next-song-query{
   width: 200px;
-  height: 50px;
+  height: 60px;
   display: inline-block;
   margin-top: 0px;
 }
 .new-query{
-  font-weight: bold;
+/*  font-weight: bold;
   width: 150px;
   font-size: 25px;
   height: 40px;
   background-color: lightblue;
-  border-radius: 3px;
+  border-radius: 3px;*/
+  opacity: .6;
+  color: lightgrey;
+  background-color: #333333;
+  font-family: 'Open Sans Condensed', sans-serif;
+  color:  #f4f471;
+  margin-bottom: 5px;
+  font-weight: bold;
+  width: 200px;
+  font-size: 40px;
+  height: 60px;
+  outline-color: white;
+  outline-width: 2px;
+  outline-style: solid;
+  background-color: Transparent;
+  background-repeat:no-repeat;
 }
 
 .song-name{
@@ -88,18 +110,31 @@ ul {
   color: white;
 }
 .songTitle {
+  font-size: .75em;
   width: 370px;
   height: 50px;
   margin-top: 50px;
-  font-size: 1.25em;
+  /*font-size: 1.25em;*/
 }
 .songSubmit{
+  /*font-family: 'lineto-brown-regular-c',Times,serif;*/
+  font-family: 'Open Sans Condensed', sans-serif;
+  color:  #f4f471;
+  margin-bottom: 5px;
   font-weight: bold;
   width: 150px;
-  font-size: 30px;
-  height: 40px;
-  background-color: lightblue;
-  border-radius: 3px;
+  font-size: 40px;
+  height: 55px;
+  outline-color: white;
+  outline-width: 2px;
+  outline-style: solid;
+  /*background-color: lightblue;*/
+  /*border-radius: 3px;*/
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  /*border: none;*/
+  /*cursor:pointer;*/
+  /*overflow: hidden;*/
 }
 
 /*The SPOTIFY link section*/
@@ -137,7 +172,7 @@ ul {
   height: 175px;
   position: absolute;
   float: right;
-  margin-top: 30%;     
+  margin-top: 35%;     
   margin-left: 65%;
 }
 
@@ -163,7 +198,9 @@ ul {
 
 .guitar-tutorial{
   /*float: right;*/
-  height: 350px;
+  height: 600px;
+  width: 655px;
+  width: 
   color: white;
   font-size: 1.25em;
   overflow: auto;

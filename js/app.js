@@ -113,7 +113,8 @@ var getTabs = function(songName, artistName){
      //If all else fails & Songsterr doesnt have the right tab, which is quite possible,
     // allows Ux to click button & insert their own link which is contained in iFrame via sandbox
     $('.stillWrong').on('click', function(){
-  
+        alert('hi');
+
         $('.correctTab').hide();
         var theTab = prompt('Paste your tab link here.');
         
@@ -160,7 +161,7 @@ var postVids = function(dataSet){
       var snipTitle = index.snippet.title;
       var vidThumb = snipBase + index.id.videoId;
       vidList += '<p>' +snipTitle+ '</p>' 
-      + '<iframe width="400" height="275" src=' 
+      + '<iframe width="520" height="500" src=' 
       + vidThumb + '>' + '</iframe>' + '<br>';
 
       console.log(vidList,'vids');
