@@ -65,8 +65,9 @@ ul {
   text-align: center;
   line-height: 65px;
   padding: 15px;
-/*   margin: 0 auto; */
+  /*margin: 0 auto; */
 }
+
 .next-song-query{
   width: 200px;
   height: 50px;
@@ -187,7 +188,7 @@ ul {
 
 .tab-wrapper{
   width: 40%;
-    display: inline-block;
+  display: inline-block;
 }
 
 .selected{
