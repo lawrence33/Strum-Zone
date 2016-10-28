@@ -27,7 +27,9 @@ var tabData = function(query) {
       data: params,
       success: function(data) {
         var tracks = data.tracks.items;
-          console.log('hello');
+          console.log(data,'L 28');
+          console.log(tracks,'L 29');
+
        $.each(tracks, function(i, items){
           var songPost = clonePost(items);
           $('.song-results').append(songPost).addClass('overflow-sm');
@@ -52,9 +54,10 @@ var clonePost = function(artistsData){
   var uri = artistsData.uri;
 
   songLink.html('<iframe src="https://embed.spotify.com/?uri='
-  + uri + '"' + 'width="400" + height="220" frameborder="0"' 
+  + uri + '"' + 'width="350" + height="100" frameborder="0"' 
   + 'allowtransparency="true">' + '</iframe>');
 
+// src='https://embed.spotify.com/?uri=spotify:track:24lMtPOCzP5g4hrg3NklLa'
   return newPost;
 };
 
@@ -83,7 +86,7 @@ var getTabs = function(songName, artistName){
         console.log(songURL, 'url');
 
         $('.tabs-results').html('<iframe src="' + songURL + '"' 
-        + 'width="850" + height="975" frameborder="0"' 
+        + 'width="825" + height="875" frameborder="0"' 
         + 'allowtransparency="true" scrolling="yes">' + '</iframe>');
 
 
@@ -112,8 +115,9 @@ var getTabs = function(songName, artistName){
     
      //If all else fails & Songsterr doesnt have the right tab, which is quite possible,
     // allows Ux to click button & insert their own link which is contained in iFrame via sandbox
-    $('.stillWrong').on('click', function(){
+    $('#tabs-div').on('click', '.stillWrong', function(){
         alert('hi');
+        console.log("hello");
 
         $('.correctTab').hide();
         var theTab = prompt('Paste your tab link here.');
@@ -161,7 +165,7 @@ var postVids = function(dataSet){
       var snipTitle = index.snippet.title;
       var vidThumb = snipBase + index.id.videoId;
       vidList += '<p>' +snipTitle+ '</p>' 
-      + '<iframe width="520" height="500" src=' 
+      + '<iframe width="370" height="300" src=' 
       + vidThumb + '>' + '</iframe>' + '<br>';
 
       console.log(vidList,'vids');
@@ -209,7 +213,7 @@ var clearForm = function(){
         closestDiv.addClass('selected').removeClass('addArtist');
         $('.song-results').addClass('song-results2').removeClass('overflow-sm', '.song-results');
         $('.spotify').addClass('spotifynext').removeClass('spotify');
-
+        $('.nameArtist').hide();
         $('.addArtist').hide();
         theArtist = $('.selected .nameArtist').text();
         $('.selectThis').hide();

@@ -20,7 +20,7 @@ h1 {
 
 body{
   font-family: 'Open Sans Condensed', sans-serif;
-  margin: 50px;
+  margin: 2px;
   color: black;
   font-size: 1.5em;
   font-weight: bold;
@@ -48,19 +48,63 @@ ul {
   background-color: tan;
 }
 */
-
-.section{
-  /*width: 1100px;*/
+.wrap {
+  width: 1200px;
   display: inline-block;
-  /*position: fixed;*/
+}
+
+/*added this* 525pm*/
+.row {
+  max-width: 1200px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+
+.row::before,
+.row::after {
+  display: table;
+  content: " "
+}
+
+.row::after {
+  clear: both;
+}
+
+/* Non-mobile, grid */
+@media only screen and (min-width: 640px) {
+  
+  .col-3 {
+    min-width: 25%;
+  }
+
+  /* 4 columns */
+  .col-4 {
+   min-width: 33%;
+   }
+
+  /* 6 columns */
+  .col-6 {
+   min-width: 50%;
+   }
+
+  /* 12 columns */
+  .col-12 {
+    min-width: 100%;
+  }
+}
+.col-3, .col-4, .col-6, .col-12 {
+  float: left;
+  padding-left: 1.04166666%;
+  padding-right: 1.04166666%;
 }
 
 /*This is for the intro section*/
 .song-you-want {
-  position: absolute;
+  /*position: absolute;
   left: 50%;
   top: 50%;
-  font-size: 1.9em;
+  */font-size: 1.9em;
   margin: 630px;
   margin-top: 10%;
   width: 600px;
@@ -159,32 +203,23 @@ ul {
 
 .song-results{
   width: 550px;
-  height: 575px;
+  height: 375px;
   position: absolute;
   float: right;
 }
 
 .song-results2{
-  background-color: black;
-  opacity: .8;
-  color: black;
+  /*background-color: black;*/
+  /*opacity: .8;*/
+  /*color: black;*/
   width: 450px;
-  height: 175px;
+  height: 150px;
   position: absolute;
-  float: right;
+  float: left;
   margin-top: 35%;     
-  margin-left: 65%;
+  margin-left: 55%;
 }
 
-/*.row::before,
-.row::after {
-  display: table;
-  content: " "
-}
-
-.row::after {
-  clear: both;
-}*/
 
 .get-vids{
   /*margin: auto;*/
@@ -199,10 +234,10 @@ ul {
 .guitar-tutorial{
   /*float: right;*/
   height: 600px;
-  width: 655px;
+  width: 390px;
   width: 
   color: white;
-  font-size: 1.25em;
+  font-size: 1em;
   overflow: auto;
 }
 
@@ -223,11 +258,11 @@ ul {
   float: left;
 }
 
-.tab-wrapper{
+/*.tab-wrapper{
   width: 40%;
   display: inline-block;
 }
-
+*/
 .selected{
   /*padding: 10px;*/
   /*background-color: grey;*/
