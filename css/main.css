@@ -1,140 +1,52 @@
+
 html {
   background-size: cover;
   background-position: center center;
   background-image: url(../images/guitar_background2.jpg);
-  color: red;
   background-attachment: fixed;
   /*position: absolute; */
 }
 
 * {
+  /*border: 1px solid white;*/
   box-sizing: border-box;
 }
 
 h1 {
+  text-align: right;
+  width: 33%;
+  float: right;
   color: white;
   font-size: 2.75em;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 body{
-  margin: 50px;
+  font-family: 'Open Sans Condensed', sans-serif;
   color: black;
+  font-size: 1.5em;
   font-weight: bold;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+  /*overflow-x: hidden;*/
+  /*overflow-y: scroll;*/
+  /*position: fixed;*/
+
 }
 
 ul {
+  padding: 0;
   list-style: none;
 }
 
-.section{
-  /*width: 1100px;*/
-  display: inline-block;
-  /*position: fixed;*/
-}
-
-/*This is for the intro section*/
-.song-you-want {
-  font-size: 1.9em;
-  margin: 665px;
-  margin-top: 10%;
-  width: 600px;
-  height: 300px;
-  opacity: .6;
-  color: lightgrey;
-  background-color: black;
-  border-radius: 5px;
-  text-align: center;
-  line-height: 65px;
-  padding: 15px;
-/*   margin: 0 auto; */
-}
-.next-song-query{
-  width: 200px;
-  height: 50px;
-  display: inline-block;
-  margin-top: 0px;
-}
-.new-query{
-  font-weight: bold;
-  width: 150px;
-  font-size: 25px;
-  height: 40px;
-  background-color: lightblue;
-  border-radius: 3px;
-
-/*  line-height: 50px;
-  height: 125px;
-  font-weight: bold;
-  width: 50px;
-  font-size: 7px;
-  height: 20px;
-  background-color: lightblue;
-  border-radius: 3px;*/
-}
-
-.song-name{
-  font-size: 1.5em;
-  color: white;
-}
-.songTitle {
-  width: 370px;
-  height: 50px;
-  margin-top: 50px;
-  font-size: 1.25em;
-}
-.songSubmit{
-  font-weight: bold;
-  width: 150px;
-  font-size: 30px;
-  height: 40px;
-  background-color: lightblue;
-  border-radius: 3px;
-}
-
-/*The SPOTIFY link section*/
-.spotify{
-  display: inline-block;
-  /*position: relative;*/
-  margin: 45%;
-  margin-top: 5%;
-  width: 400px;
-  background-color: black;
-  opacity: .8;
-  border-radius: 5px;
-}
-
-.spotifynext{
-  display: inline-block;
-  /*margin-top: 5%;*/
-  width: 400px;
-  background-color: black;
-  opacity: .8;
-  border-radius: 5px;
-}
-
-/*.spotify-row{
-  height: 300px;
-  display: inline-block;
-  margin-top: 0px;
-}*/
-
-.song-results{
-/*overflow: auto;*/
-/*height: 300px;*/
-/*font-size: 1.25em;
-  margin: 550px;
-  margin-top: 10%;
-  width: 400px;
-  height: 250px;
-  opacity: .6;
-  color: lightgrey;
-  background-color: black;*/
-  /*text-align: center;*/
-  /*line-height: 65px;*/
-  /*padding: 15px;*/
-  /*text-align: center; */
+.container {
+  /*border: 2px solid red;*/
+  width: 1280px;
+  clear: both;
+  padding-left: 5px;
+  padding-right: 2px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .row::before,
@@ -147,59 +59,172 @@ ul {
   clear: both;
 }
 
-.get-vids{
-  /*margin: auto;*/
-  padding: 5px;
-  float: right;
-  width: 35%;
-  height: 330px;
-  /*outline: 1px solid white;*/
-  /*background-color: yellow;*/
+/* Non-mobile, grid */
+@media only screen and (min-width: 1000px) {
+  
+.two {
+    min-width: 32%;
+    display: block;
+    float: left;
+  }
+
+  /* 4 columns */
+.four {
+  min-width: 65%;
+  display: block;
+  float: left;
+}
+
+  /* 6 columns */
+.three {
+  min-width: 50%;
+  display: block;
+  float: left;
+}
+
+  /* 12 columns */
+.six {
+min-width: 100%;
+display: block;
+float: left;
+  }
+
+.song-name{
+  font-size: 1.5em;
+  color: white;
+}
+.songTitle {
+  font-size: .75em;
+  width: 370px;
+  height: 50px;
+  margin-top: 25px;
+  /*font-size: 1.25em;*/
+}
+.songSubmit{
+  font-family: 'Open Sans Condensed', sans-serif;
+  color:  #f4f471;
+  margin-bottom: 5px;
+  font-weight: bold;
+  width: 150px;
+  font-size: 40px;
+  height: 55px;
+  outline-color: white;
+  outline-width: 2px;
+  outline-style: solid;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  margin-top: 20px;
+}
+
+/*The SPOTIFY link section*/
+.spotify{
+  display: inline-block;
+  /*position: relative;*/
+  height: 595px;
+  /*margin: 35%;*/
+  margin-top: 2%;
+  width: 400px;
+  margin-left: 100%;
+  background-color: black;
+  opacity: .8;
+  /*padding: 10px;*/
+  border-radius: 5px;
+}
+.spotify-artist{
+  text-align: center;
+  display: inline-block;
+  height: 100%;
+  /*margin-top: 2%;*/
+  width: 300px;
+  margin-left: 95%;
+  background-color: black;
+  opacity: .8;
+  border-radius: 5px;
 }
 
 .overflow-sm {
-  width: 400px;
-  height: 500px;
+  width: 510px;
+  height: 540px;
   overflow: auto;
 }
 
-.guitar-tutorial{
+.song-results{
+  width: 395px;
+  height: 571px;
+  position: absolute;
+  float: right;
+}
+
+.song-results2{
+  /*background-color: black;*/
+  /*opacity: .8;*/
+  /*color: black;*/
+  width: 350px;
+  height: 120px;
+  /*position: absolute;*/
+  /*float: left;*/
+  margin-top: 450px; /*    
+  margin-left: 60%;*/
+}
+
+/*.get-vids{*/
+  /*box-sizing: border-box;*/
+  /*margin: auto;*/
+  /*padding: 5px;*/
   /*float: right;*/
-  height: 350px;
+  /*position: fixed;*/
+  /*z-index: 1;*/
+  /*width: 35%;*/
+  /*height: 330px;*/
+  /*display: inline-block;*/
+  /*outline: 1px solid white;*/
+  /*background-color: yellow;*/
+/*}*/
+
+.guitar-tutorial{
+  float: left;
+  /*background-color: white;*/
+  height: 400px;
+  width: 425px;
   color: white;
-  font-size: 1.25em;
+  font-size: 1em;
   overflow: auto;
+}
+
+#go-right{
+  /*float: right;*/
+  height: 600px;
+  width: 425px;
+  margin-right: 10px;
 }
 
 /*the rest of the CSS styling*/
 .hidden{
   display: none; 
-/*visibility: hidden;*/
 }
 
 .nameArtist {
-  /*color: #FFFACD;*/
   color: white;
   font-size: 1.75em;
 }
 
 .tabs-results{
   overflow: auto;
+<<<<<<< HEAD
   float: left;
 }
 
 .tab-wrapper{
   width: 40%;
+=======
+  float: right;
+>>>>>>> master
   display: inline-block;
 }
 
 .selected{
-  /*padding: 10px;*/
-  /*background-color: grey;*/
   color: white;
-  /*font-size: 1.25em;*/
   margin-top: 0;
-  margin-right: 50px;
   height: 100px;
   width: 300px;
   box-sizing: border-box;
@@ -210,22 +235,113 @@ ul {
 }
 
 .addArtist{
-  /*background-color: grey;*/
   opacity: 20%;
   height: 200px;
   width: 300px;
   box-sizing: border-box;
 }
 
-.list-tabs {
-  color: white;
+.next{
+  text-align: left;
+  /*color: lightgrey;*/
+  background-color: #333333;
+  font-family: 'Open Sans Condensed', sans-serif;
+  /*color:  #f4f471;*/
+  margin-bottom: 10px;
+  font-weight: bold;
+  width: 400px;
+  font-size: 37px;
+  /*height: 60px;*/
+  /*outline-color: white;*/
+  /*outline-width: 2px;*/
+  /*outline-style: solid;*/
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  display: inline-block;
+  /*padding-left: 5px;*/
+  /*border: 3px solid white;  */
 }
 
-a {
-  color: beige;
+.list-tabs li{
+  /*font-size: 18px;*/
+  line-height: 40px;
+  text-align: center;
 }
-a:hover {
-  color: beige;
+
+.list-tabs li a{
+  color: white;
+  text-decoration: none;
+}
+.list-tabs li a:hover {
+  font-size: 42px;
+
+}
+
+/*This is for the intro section*/
+.song-you-want {
+  /*position: absolute;
+  left: 50%;
+  top: 50%;*/
+  font-size: 1.9em;
+  /*margin: 630px;*/
+  /*margin-top: 10%;*/
+  /*width: 600px;*/
+  height: 250px;
+  opacity: .6;
+  color: lightgrey;
+  background-color: #333333;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 65px;
+  margin: auto; 
+/*  position: relative;
+*/}
+
+.next-song-query{
+  width: 600px;
+  height: 130px;
+  display: inline-block;
+  margin-top: 0px;
+}
+
+.next-song-query ul {
+  line-height: 5px;
+}
+
+.new-query, .correctTab, .stillWrong{
+  position: relative;
+  opacity: .6;
+  color: lightgrey;
+  background-color: #333333;
+  font-family: 'Open Sans Condensed', sans-serif;
+  color:  #f4f471;
+  margin-bottom: 5px;
   font-weight: bold;
-  font-size: 1.5em; 
+  font-size: 20px;
+  height: 30px;
+  outline-color: white;
+  outline-width: 2px;
+  outline-style: solid;
+  background-color: Transparent;
+  background-repeat:no-repeat;
 }
+
+/*.correctTab{
+  display: inline-block;
+  float: left;
+  opacity: .6;
+  color: lightgrey;
+  background-color: #333333;
+  font-family: 'Open Sans Condensed', sans-serif;
+  color:  #f4f471;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 40px;
+  height: 60px;
+  outline-color: white;
+  outline-width: 2px;
+  outline-style: solid;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+}
+*/

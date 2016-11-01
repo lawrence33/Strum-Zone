@@ -5,52 +5,70 @@
   <base href="myIframe">
   <title>Stock </title>
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 </head>
-<div class='wrap'>
+<body>
+  <div class='container'>  
 
-  <body>
+
+ <div class="row"><!--My 1st row with NAV bar tools in it-->
+    
     <h1>The Strum zone</h1>
     <br />
-    <div class="next-song-query hidden" >
-        <input type="submit" class='new-query' value="New Song">
-    </div>      
-    
-    <div class='song-you-want'>
-      <form class='song-name'>Type in your song name:<br>
-        <input type="text" class='songTitle' />
-        <br>
-        <input type="submit" class="songSubmit" /><br>
-      </form>
+
+    <div class="next">
+      <div class="next-song-query hidden" >
+        <ul>
+          <input type="submit" class='new-query' value="NEW"/>
+          <input type="submit" class="stillWrong hidden" value="PASTE"/>
+          <input type="submit" class="correctTab hidden" value="DIFFERENT"/>
+              <ul class="list-tabs">
+              </ul>
+              </ul>  
+      </div>
     </div>
 
+</div> <!--CLOSE the NAV bar div-->
 
-        <div class="spotify row hidden">
-        <ul class='song-results'></ul>
-        <br>
-        </div>
-        <br>
-        <hr>
-
-  <div class="section">
-    <!-- using this div to move the tab window around the page -->
-    <br>
-    <div class="tab-wrapper">
-      <button class="correctTab hidden">Not the right tab? Click here.</button>
-      <br>
-      <button class="stillWrong hidden">Paste a tab link here.</button>
-    <ul class="list-tabs"></ul>
-      <div class="tabs-results"></div>
+  <div class="row">
+    <div class="six">
+      <div class='song-you-want'>
+        <form class='song-name'>Type in your song name:<br>
+          <input type="text" class='songTitle' />
+          <br>
+          <input type="submit" class="songSubmit" value="SUBMIT" /><br>
+        </form>
+      </div>
     </div>
+  </div> <!--Close SONG SEARCH section-->
 
+  <div class="row next-row"> <!--open SPOTIFY & YT section that is 2 columns wide-->
+    <div class="two">
+      <div id="go-right">
 
-        <!-- post the Youtube results in this div -->
-    <br>
-        <div class="get-vids row">
-          <div class="guitar-tutorial"></div>
+      <!-- Spotify results here -->
+        <div class="spotify hidden">
+          <ul class='song-results'></ul>
         </div>
-    <br>
+      
+    <!-- post the Youtube results in this div -->
+       <div class="get-vids">
+           <div class="guitar-tutorial">
+           </div>
+        </div><!--close GET VIDS div-->
+      </div> <!--Closes the GO RIGHT id tag-->
+    </div> <!--closes the TWO div-->
+ 
 
-  </div>
+  <!--Tabs results go in here-->
+  <div class="four">
+       <div class="tabs-results">
+       </div>
+  </div>   <!--close TABS div--> 
+
+</div> <!--close row line 46 div-->
+
+ 
 
     <div class="template hidden">
         <div class="addArtist" id=addArtist>
@@ -58,9 +76,10 @@
           <li class='nameArtist'></li>
           <li class="songLink"></li>
         </div>
-    </div>
+    </div> <!--close template-->
 
-</div>
+
+</div><!--close CONTAINER div-->
 </body>
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src="js/app.js"></script>
