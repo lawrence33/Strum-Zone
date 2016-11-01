@@ -148,33 +148,35 @@ var clearForm = function(){
       var restOfTabs = '';
       var baseSite = 'http://www.songsterr.com/';
 
-      $('.stillWrong').show();
+      $('.guitar-tutorial, .song-results, .tabs-results').hide();
 
       $('.tabs-results').html('<iframe name="myIframe" src="' + baseSite + '"' 
-        + 'width="850" + height="975" frameborder="0"' 
+        + 'width="825" + height="875" frameborder="0"' 
         + 'allowtransparency="true" scrolling="yes" sandbox="allow-forms allow-scripts">' + '</iframe>');
       
       $.each(tabsData,function(i,index){
         restOfTabs += '<li><a href="' +songAPI+index.id + '"' +' target="myIframe">' +index.artist.name+ '</a></li>';
       });
 
-      $('.list-tabs').html(restOfTabs);
-      $('.list-tabs').on('click',function(){
-        $('.list-tabs').hide();
+        $('.list-tabs').addClass('spotify-artist').html(restOfTabs);
+        $('.list-tabs').on('click',function(){
+          
+          $('.list-tabs').slideUp();
+          $('.guitar-tutorial, .song-results, .tabs-results').show();
       });
     });
     
      //If all else fails & Songsterr doesnt have the right tab, which is quite possible,
     // allows Ux to click button & insert their own link which is contained in iFrame via sandbox
-    $('#tabs-div').on('click', '.stillWrong', function(){
+    $('.next-song-query').on('click', '.stillWrong', function(){
 
-        $('.correctTab').hide();
-        var theTab = prompt('Paste your tab link here.');
+        var theTab = prompt('Paste your own tab link to this song below');
         
         $('.tabs-results').empty();
 
+
         $('.tabs-results').html('<iframe src="' + theTab + '"' 
-        + 'width="850" + height="975" frameborder="0"' 
+        + 'width="825" + height="875" frameborder="0"' 
         + 'allowtransparency="true" scrolling="yes" sandbox="allow-forms allow-scripts">' + '</iframe>');
       });
 
@@ -186,12 +188,13 @@ var clearForm = function(){
         clearForm();
 
         $('.songTitle').val("");
+        $('.spotifynext').removeClass('spotifynext').addClass('spotify');
+        $('.spotify').addClass('hidden');
         $('.song-you-want').slideDown('slow');
         $('.next-song-query').slideUp('slow');
-        $('.spotifynext').removeClass('spotifynext').addClass('spotify');
-        $('.correctTab').hide();
+        $('.correctTab, .stillWrong').hide();
         $('.song-results').empty();
-        $('.song-results').removeClass('song-results2').addClass('overflow-sm', '.song-results');
+        $('.song-results').removeClass('song-results2');
     });
 
 
@@ -200,7 +203,9 @@ var clearForm = function(){
       $('.spotify').on('click','.selectThis',function(e){
         e.preventDefault();
 
+        $('.new-query').show();
         $('.correctTab').show();
+        $('.stillWrong').show().css('background-color', 'red');
 
         var closestDiv = $(this).closest('div');
 
