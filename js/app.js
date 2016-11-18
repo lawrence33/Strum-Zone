@@ -148,28 +148,43 @@ var clearForm = function(){
       var restOfTabs = '';
       var baseSite = 'http://www.songsterr.com/';
 
-      $('.guitar-tutorial, .song-results, .tabs-results').hide();
+      // $('.correctHide').hide('slow');
+      $('.correctHide').toggle();
 
       $('.tabs-results').html('<iframe name="myIframe" src="' + baseSite + '"' 
         + 'width="825" + height="875" frameborder="0"' 
         + 'allowtransparency="true" scrolling="yes" sandbox="allow-forms allow-scripts">' + '</iframe>');
       
       $.each(tabsData,function(i,index){
+        if(i <= 10){
         restOfTabs += '<li><a href="' +songAPI+index.id + '"' +' target="myIframe">' +index.artist.name+ '</a></li>';
+        }
       });
 
         $('.list-tabs').addClass('spotify-artist').html(restOfTabs);
+        
+        // console.log(restOfTabs.length, 'initial');
+        // // console.log(list-tabs.length, 'click');
+
+        // if(restOfTabs.length > 0){
+        //   alert('hi');
+        //   // $('.correctTab').on('click', function(){
+          //   $('.newArtist').toggle();
+          // })
+        // };
+
         $('.list-tabs').on('click',function(){
           
-          $('.list-tabs').slideUp();
-          $('.guitar-tutorial, .song-results, .tabs-results').show();
+          $('.list-tabs').hide();
+          $('.correctHide').show('slow');
       });
     });
     
      //If all else fails & Songsterr doesnt have the right tab, which is quite possible,
     // allows Ux to click button & insert their own link which is contained in iFrame via sandbox
-    $('.next-song-query').on('click', '.stillWrong', function(){
-
+    $('.next-song-query').on('click', '.stillWrong', function(e){
+        e.preventDefault();
+        
         var theTab = prompt('Paste your own tab link to this song below');
         
         $('.tabs-results').empty();
